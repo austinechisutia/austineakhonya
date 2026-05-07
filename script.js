@@ -59,7 +59,7 @@ function randomizeHobbies() {
                 "Increased revenue visibility and reduced manual work"
               ],
               image: "images/web/landlord.png",
-              link: "https://austinechisutia.github.io/shopping-web/"
+              link: "https://landloard-chi.vercel.app/"
             },
              {
               title: "Film . 2025",
@@ -81,7 +81,7 @@ function randomizeHobbies() {
                 "Promotes green living through conscious kitchen choices"
               ],
               image: "images/web/Vigne.png",
-              link: "#"
+              link: "https://vigne-xi.vercel.app/"
             }
            
           ];

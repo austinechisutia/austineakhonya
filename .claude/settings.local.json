@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:landloard-chi.vercel.app)"
+    ]
+  }
+}
