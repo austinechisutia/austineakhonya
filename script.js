@@ -1,4 +1,96 @@
 
+// ── Contact Modal ──
+(function () {
+    const overlay  = document.getElementById('contactModal');
+    const closeBtn = document.getElementById('closeModal');
+    const form     = document.getElementById('contactForm');
+    const success  = document.getElementById('formSuccess');
+
+    function openModal() {
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        form.style.display = 'flex';
+        success.style.display = 'none';
+    }
+
+    function closeModal() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('[data-open-contact]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+            e.preventDefault();
+            openModal();
+        });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+
+    overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeModal();
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
+    });
+
+    var submitBtn = form.querySelector('.form-submit');
+
+    function setLoading(loading) {
+        submitBtn.disabled = loading;
+        submitBtn.innerHTML = loading
+            ? 'Sending…'
+            : 'Send Message <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11 8.414V18h2V8.414l4.293 4.293 1.414-1.414L12 4.586l-6.707 6.707 1.414 1.414z"/></svg>';
+    }
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var name    = document.getElementById('clientName').value.trim();
+        var email   = document.getElementById('clientEmail').value.trim();
+        var type    = document.getElementById('projectType').value;
+        var budget  = document.getElementById('budget').value;
+        var message = document.getElementById('clientMessage').value.trim();
+
+        if (!name || !email || !type || !message) return;
+
+        setLoading(true);
+
+        var payload = {
+            access_key: form.querySelector('[name="access_key"]').value,
+            name:    name,
+            email:   email,
+            subject: 'Project Inquiry: ' + type + ' from ' + name,
+            message: 'Project Type: ' + type
+                   + '\nBudget: '       + (budget || 'Not specified')
+                   + '\n\nDetails:\n'   + message,
+            botcheck: form.querySelector('[name="botcheck"]').checked
+        };
+
+        try {
+            var res  = await fetch('https://api.web3forms.com/submit', {
+                method:  'POST',
+                headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                body:    JSON.stringify(payload)
+            });
+            var data = await res.json();
+
+            if (data.success) {
+                form.style.display    = 'none';
+                success.style.display = 'flex';
+                form.reset();
+                setTimeout(closeModal, 3500);
+            } else {
+                throw new Error(data.message || 'Submission failed');
+            }
+        } catch (err) {
+            alert('Could not send your message. Please try again or email me directly at austineakhonya624@gmail.com');
+        } finally {
+            setLoading(false);
+        }
+    });
+}());
+
 
 function randomizeHobbies() {
             let container = document.getElementById('hobbies-container');
