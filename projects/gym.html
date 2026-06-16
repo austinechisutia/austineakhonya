@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="project.css">
+    <title>Gym Management System — Case Study</title>
+</head>
+<body>
+
+<nav class="back-bar">
+    <a href="../index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414 1.414L6.414 13H21z"/>
+        </svg>
+        Back to Portfolio
+    </a>
+    <span class="site-name">Austine Chisutia</span>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <span class="hero-tag">Case Study · 2026 · Operations Platform</span>
+    <h1>Gym — Member &amp; Operations Management</h1>
+    <p class="hero-sub">
+        A comprehensive gym management system that handles member onboarding, class scheduling, subscription billing, attendance tracking, and coach assignments — turning chaotic spreadsheet operations into a real-time command centre.
+    </p>
+    <div class="hero-links">
+        <a href="#system-design" class="btn-primary">
+            System Design
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 15-5-5 1.414-1.414L11 13.172V7h2v6.172l2.586-2.586L17 12l-5 5z"/></svg>
+        </a>
+        <a href="#ai-section" class="btn-secondary">
+            AI Principles
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.827 3.52h-3.645L6.3 20.48h3.517l.837-2.685h5.21l.834 2.685h3.52l-3.882-16.96h-2.51zm-2.635 11.656 1.785-5.726 1.783 5.726H11.19z"/></svg>
+        </a>
+    </div>
+</section>
+
+<div class="hero-img">
+    <div class="hero-img-placeholder">GYM MANAGEMENT SYSTEM</div>
+</div>
+
+<div class="content">
+
+    <!-- Problem -->
+    <section>
+        <span class="section-label">The Problem</span>
+        <h2 class="section-title">Why Gyms Need Better Software</h2>
+        <div class="section-body">
+            <p>Most gyms — especially mid-size ones with 100–500 members — run on a combination of paper sign-in sheets, WhatsApp broadcast messages, and Excel payment trackers. The result: coaches don't know who paid this month, members show up to full classes, subscriptions auto-renew even after a member leaves, and the owner has no idea which class time-slot is most profitable.</p>
+            <p>The goal was to build a system that solves the <em>operational</em> problem first: give staff a tool they'd actually use every day, then surface the analytics that help owners make better decisions.</p>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section>
+        <span class="section-label">Technology</span>
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="tech-grid" style="margin-top:8px;">
+            <span class="tech-chip">Next.js 14 (App Router)</span>
+            <span class="tech-chip">TypeScript</span>
+            <span class="tech-chip">PostgreSQL</span>
+            <span class="tech-chip">Prisma ORM</span>
+            <span class="tech-chip">Tailwind CSS</span>
+            <span class="tech-chip">NextAuth.js</span>
+            <span class="tech-chip">Stripe</span>
+            <span class="tech-chip">React Query</span>
+            <span class="tech-chip">Resend (email)</span>
+            <span class="tech-chip">Vercel</span>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- System Design -->
+    <section id="system-design">
+        <span class="section-label">System Design</span>
+        <h2 class="section-title">Architecture &amp; Design Principles</h2>
+        <div class="section-body">
+            <p>The gym system is built around five core domains: <strong>Members</strong>, <strong>Classes</strong>, <strong>Schedules</strong>, <strong>Subscriptions</strong>, and <strong>Attendance</strong>. Each domain owns its own data, exposes a clean service interface, and communicates with others through events — not direct function calls across domain boundaries.</p>
+        </div>
+
+        <!-- Architecture diagram -->
+        <div class="diagram" style="margin-top:24px;">
+            <p class="diagram-title">Domain Architecture</p>
+            <div class="flow">
+                <div class="flow-node">Member Portal</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">Auth Middleware</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">API Layer</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">Domain Services</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">Prisma ORM</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">PostgreSQL</div>
+            </div>
+        </div>
+
+        <!-- Data flow for scheduling -->
+        <div class="diagram" style="margin-top:16px;">
+            <p class="diagram-title">Class Booking Flow</p>
+            <div class="flow">
+                <div class="flow-node">Member selects class</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">Capacity check (lock)</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">Subscription valid?</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">Booking created</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">Confirmation email</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">Reminder (24h before)</div>
+            </div>
+        </div>
+
+        <div class="card-grid" style="margin-top:28px;">
+
+            <div class="card">
+                <div class="card-title">Member Lifecycle</div>
+                <p class="card-desc">Members progress through defined states: <code>LEAD → ACTIVE → FROZEN → CHURNED</code>. Each transition fires a domain event that triggers the right downstream action (billing pause, access revocation, win-back email) without tight coupling.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Scheduling System</div>
+                <p class="card-desc">Classes are recurring templates (e.g., "Monday 6am Crossfit") that generate individual <code>Session</code> records per occurrence. Capacity is enforced with a database-level check constraint so no over-booking is possible, even under concurrent requests.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Subscription &amp; Billing</div>
+                <p class="card-desc">Stripe handles recurring billing. Our system listens to Stripe webhooks — <code>invoice.paid</code>, <code>customer.subscription.deleted</code> — and updates member access rights in real time. The webhook handler is idempotent: replayed events produce the same result.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Attendance Tracking</div>
+                <p class="card-desc">QR-code check-in links a scan to a <code>Session</code> and <code>Member</code>. The attendance record feeds two things: the class's actual headcount (coaches see this live) and the member's monthly usage — used to flag inactive members before they churn.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Coach Assignment &amp; Workload</div>
+                <p class="card-desc">Coaches are assigned to class templates with a max-hours-per-week constraint. The scheduling engine warns when an assignment would breach that limit. Coach schedules auto-populate from templates, reducing admin double-entry to zero.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Concurrency Safety</div>
+                <p class="card-desc">The class-booking endpoint uses PostgreSQL's <code>SELECT ... FOR UPDATE SKIP LOCKED</code> to handle simultaneous bookings without race conditions. The last seat goes to exactly one member — no double-booking ever.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Analytics Layer</div>
+                <p class="card-desc">Aggregated views materialise key metrics: peak class times, coach utilisation, revenue per member, and churn rate. Computed on a schedule (not per request) so the dashboard loads instantly even with thousands of rows.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Notification Engine</div>
+                <p class="card-desc">A job queue handles outbound emails (class reminders, payment receipts, expiry warnings). Jobs retry on failure, are deduplicated by <code>notificationKey</code>, and never block the main request thread.</p>
+            </div>
+
+        </div>
+
+        <div class="highlight">
+            <strong>Core design rule:</strong> Every write that changes business state must be atomic. If sending the confirmation email fails after a booking is created, the booking still exists. The email is retried independently — failure in one process never corrupts another.
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- AI Section -->
+    <section id="ai-section">
+        <span class="section-label">AI-Assisted Development</span>
+        <h2 class="section-title">How AI Was Applied to This Project</h2>
+        <div class="section-body">
+            <p>Gym management software has deceptively complex scheduling and billing logic. AI shortened the distance between "knowing what to build" and "having working code" — dramatically. Here's exactly how.</p>
+        </div>
+
+        <div class="ai-steps" style="margin-top:24px;">
+
+            <div class="ai-step">
+                <div class="ai-step-num">1</div>
+                <div class="ai-step-body">
+                    <h4>Domain Modelling with Claude</h4>
+                    <p>I described the gym's business rules in natural language — "a member can book a class only if their subscription is active and the class isn't full" — and asked Claude to model the domain entities and their relationships. The generated entity diagram matched 90% of what I had in my head, and the 10% that was wrong revealed assumptions I hadn't consciously made yet.</p>
+                </div>
+            </div>
+
+            <div class="ai-step">
+                <div class="ai-step-num">2</div>
+                <div class="ai-step-body">
+                    <h4>Recurring Schedule Algorithm</h4>
+                    <p>Generating class sessions from a recurring template (handle DST, skip public holidays, handle "last Sunday of the month" patterns) is date-math hell. I described the requirements to Claude and got a clean, well-commented utility function. I tested it against edge cases manually and found one timezone bug — fixed with a one-line correction.</p>
+                </div>
+            </div>
+
+            <div class="ai-step">
+                <div class="ai-step-num">3</div>
+                <div class="ai-step-body">
+                    <h4>Stripe Webhook Handler</h4>
+                    <p>Stripe webhooks have many event types, each requiring different handling. I gave Claude the Stripe docs URL and said "generate a robust webhook handler that processes invoice.paid, customer.subscription.updated, and customer.subscription.deleted events and maps them to our member state machine." The result was idiomatic, handled signature verification correctly, and was idempotent from the start.</p>
+                </div>
+            </div>
+
+            <div class="ai-step">
+                <div class="ai-step-num">4</div>
+                <div class="ai-step-body">
+                    <h4>SQL Aggregation Queries</h4>
+                    <p>The analytics dashboard needed complex GROUP BY queries — "revenue by coach by week, excluding trial members". Describing the output shape to ChatGPT and getting raw SQL in seconds is far faster than trial-and-error in a SQL editor. I validated all outputs against known data before shipping.</p>
+                </div>
+            </div>
+
+            <div class="ai-step">
+                <div class="ai-step-num">5</div>
+                <div class="ai-step-body">
+                    <h4>Churn Prediction Logic</h4>
+                    <p>I asked Claude to suggest a simple, deterministic churn-risk score based on attendance data (no ML required). It proposed a weighted formula: days since last visit, booking-to-attendance ratio, and months-remaining on subscription. Simple, transparent, and accurate enough to flag at-risk members 2 weeks before they disappear.</p>
+                </div>
+            </div>
+
+            <div class="ai-step">
+                <div class="ai-step-num">6</div>
+                <div class="ai-step-body">
+                    <h4>Automated Documentation</h4>
+                    <p>API route documentation and JSDoc for service functions were written by AI — given the function signature and types, Claude generated accurate, readable docs in seconds. This is the kind of work that always gets skipped under pressure; AI made it effortless to keep documentation up to date.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="highlight">
+            <strong>Principle:</strong> I use AI like a tool, not a crutch. I understand every line it generates before it ships. The goal is always 10x velocity on the mechanical work — so I have more cognitive energy for the architecture and product decisions that make or break a product.
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Outcomes -->
+    <section>
+        <span class="section-label">Outcomes</span>
+        <h2 class="section-title">What This System Delivers</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-title">Zero Over-Booking</div>
+                <p class="card-desc">Database-level concurrency controls ensure class capacity is always respected, even under simultaneous booking requests from multiple members.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">Automated Billing</div>
+                <p class="card-desc">Stripe integration handles subscription renewals, failed payment retries, and access revocation automatically — no manual chasing of overdue members.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">Churn Early Warning</div>
+                <p class="card-desc">The churn-risk score surfaces members who are drifting before they cancel — giving the gym a 2-week window to re-engage them proactively.</p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer class="proj-footer">
+    <p>Built by <a href="../index.html">Austine Chisutia</a></p>
+</footer>
+
+</body>
+</html>

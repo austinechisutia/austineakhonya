@@ -130,84 +130,106 @@ function randomizeHobbies() {
 
         
 
+        const checkSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="fill:#6c757d;flex-shrink:0"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="M9.999 13.587 7.7 11.292l-1.412 1.416 3.713 3.705 6.706-6.706-1.414-1.414z"></path></svg>`;
+        const arrowSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="fill:#6c757d"><path d="M11 8.414V18h2V8.414l4.293 4.293 1.414-1.414L12 4.586l-6.707 6.707 1.414 1.414z"></path></svg>`;
+
         const projects = [
-            // {
-            //   title: "KLINIC . 2025",
-            //   subtitle: "A Modern Web Application for Patients",
-            //   achievements: [
-            //     "Enhanced user experience by 40%",
-            //     "Improved site speed by 50%",
-            //     "Increased mobile traffic by 35%"
-            //   ],
-            //   image: "images/web1.png",
-            //   link: "https://austinechisutia.github.io/Klinic/"
-            // },
-            {
-              title: "Landlord . 2026",
-              subtitle: "Rent collection and tenant management platform",
-              achievements: [
-                "Improved rent tracking and operational efficiency",
-                "Simplified tenant management and payment processes",
-                "Increased revenue visibility and reduced manual work"
-              ],
-              image: "images/web/landlord.png",
-              link: "https://landloard-chi.vercel.app/"
-            },
-             {
-              title: "Film . 2025",
-              subtitle: "Production at it's core, showcasing cinematic excellence.",
-              achievements: [
-                "Enhanced user experience by 40%",
-                "Improved site speed by 50%",
-                "Increased mobile traffic by 35%"
-              ],
-              image: "images/web/screenshot4.png",
-              link: "https://austinechisutia.github.io/production-power-house/"
-            },
-            {
-              title: "Vigne . 2026",
-              subtitle: "Green Vignea Sustainable Kitchenware Marketplace.",
-              achievements: [
-                "Curated eco-friendly and sustainable kitchen appliances",
-                "Energy-efficient products designed to reduce environmental impact",
-                "Promotes green living through conscious kitchen choices"
-              ],
-              image: "images/web/Vigne.png",
-              link: "https://vigne-xi.vercel.app/"
-            }
-           
-          ];
+          {
+            title: "Landlord . 2026",
+            subtitle: "Rent collection and tenant management platform",
+            achievements: [
+              "Improved rent tracking and operational efficiency",
+              "Simplified tenant management and payment processes",
+              "Increased revenue visibility and reduced manual work"
+            ],
+            image: "images/web/landlord.png",
+            link: "https://landloard-chi.vercel.app/",
+            casePage: "projects/landlord.html"
+          },
+          // {
+          //   title: "Gym . 2026",
+          //   subtitle: "Full-stack gym member and operations management system",
+          //   achievements: [
+          //     "Member lifecycle management from lead to churn",
+          //     "Automated class scheduling and coach assignment",
+          //     "Stripe-integrated subscription and billing engine"
+          //   ],
+          //   image: null,
+          //   imageLabel: "GYM MANAGEMENT SYSTEM",
+          //   link: null,
+          //   casePage: "projects/gym.html"
+          // },
+          // {
+          //   title: "Film . 2025",
+          //   subtitle: "Production at its core, showcasing cinematic excellence.",
+          //   achievements: [
+          //     "Enhanced user experience by 40%",
+          //     "Improved site speed by 50%",
+          //     "Increased mobile traffic by 35%"
+          //   ],
+          //   image: "images/web/screenshot4.png",
+          //   link: "https://austinechisutia.github.io/production-power-house/",
+          //   casePage: "projects/film.html"
+          // },
+          {
+            title: "Home Vigne . 2026",
+            subtitle: "Home Vigne — Sustainable Kitchenware Marketplace.",
+            achievements: [
+              "Curated eco-friendly and sustainable kitchen appliances",
+              "Energy-efficient products designed to reduce environmental impact",
+              "Promotes green living through conscious kitchen choices"
+            ],
+            image: "images/web/Vigne.png",
+            link: "https://vigne-xi.vercel.app/",
+            casePage: "projects/vigne.html"
+          },
+          {
+            title: "4Fyt . 2026",
+            subtitle: "AI-powered fitness planning built for real people",
+            achievements: [
+              "Generates personalised workout and nutrition plans in under 3 minutes",
+              "Constraint-first safety model — injury flags enforced before AI sees the request",
+              "Structured output parsing with Zod ensures plan validity on every generation"
+            ],
+            image: "images/web/4fyt.png",
+            link: "https://4fyt.vercel.app/",
+            casePage: "projects/4fyt.html"
+          }
+        ];
 
 const container = document.getElementById("projects");
 
+projects.forEach(project => {
+  const imageBlock = project.image
+    ? `<img src="${project.image}" alt="${project.title}" style="width:100%;border-radius:8px;">`
+    : `<div class="hero-img-placeholder">${project.imageLabel}</div>`;
 
- projects.forEach(project => {
-            const projectHTML = `
-              <div class="klinic">
-                <div class="klinic-top">
-                    <h5 class="results klinic-title">${project.title}</h5>
-                    <p class="klinic-title">${project.subtitle}</p>
-                    <div class="line"></div>
-                    <div class="klinic-functions profile-description">
-                        <div class="klinic-function1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 24" style="fill: #6c757d;transform: ;msFilter:;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="M9.999 13.587 7.7 11.292l-1.412 1.416 3.713 3.705 6.706-6.706-1.414-1.414z"></path></svg>${project.achievements[0]}</div>
-                        <div class="klinic-function1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 24" style="fill: #6c757d;transform: ;msFilter:;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="M9.999 13.587 7.7 11.292l-1.412 1.416 3.713 3.705 6.706-6.706-1.414-1.414z"></path></svg>${project.achievements[1]}</div>
-                        <div class="klinic-function1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 24" style="fill: #6c757d;transform: ;msFilter:;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="M9.999 13.587 7.7 11.292l-1.412 1.416 3.713 3.705 6.706-6.706-1.414-1.414z"></path></svg>${project.achievements[2]}</div>
-                    </div>
-                    <div class="connect">
-                    <a href="${project.link}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                            Visit Site <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #6c757d;transform: ;msFilter:;"><path d="M11 8.414V18h2V8.414l4.293 4.293 1.414-1.414L12 4.586l-6.707 6.707 1.414 1.414z"></path></svg>
-                        </a>
-                    </div>
-                    
-                </div>
-                <div class="web-profile">
-                    <a href="${project.link}" target="_blank" rel="noopener noreferrer">
-                        <img src=${project.image} alt="">
-                    </a>
-                </div>
-            </div>
-            `;
-            container.innerHTML += projectHTML;
+  const visitBtn = project.link
+    ? `<div class="explore-work"><a href="${project.link}" target="_blank" rel="noopener noreferrer">Visit Site ${arrowSvg}</a></div>`
+    : '';
+
+  const projectHTML = `
+    <div class="klinic">
+      <div class="klinic-top">
+        <h5 class="results klinic-title">${project.title}</h5>
+        <p class="klinic-title">${project.subtitle}</p>
+        <div class="line"></div>
+        <div class="klinic-functions profile-description">
+          <div class="klinic-function1">${checkSvg}${project.achievements[0]}</div>
+          <div class="klinic-function1">${checkSvg}${project.achievements[1]}</div>
+          <div class="klinic-function1">${checkSvg}${project.achievements[2]}</div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
+          <div class="connect"><a href="${project.casePage}">How It's Built ${arrowSvg}</a></div>
+          ${visitBtn}
+        </div>
+      </div>
+      <div class="web-profile">
+        ${imageBlock}
+      </div>
+    </div>
+  `;
+  container.innerHTML += projectHTML;
 });
 
 

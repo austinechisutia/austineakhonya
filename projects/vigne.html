@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="project.css">
+    <title>Vigne — Sustainable Marketplace · Case Study</title>
+</head>
+<body>
+
+<nav class="back-bar">
+    <a href="../index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414 1.414L6.414 13H21z"/>
+        </svg>
+        Back to Portfolio
+    </a>
+    <span class="site-name">Austine Chisutia</span>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <span class="hero-tag">Case Study · 2026 · E-Commerce</span>
+    <h1>Vigne — Green Kitchen Marketplace</h1>
+    <p class="hero-sub">
+        A curated e-commerce platform for sustainable, eco-friendly kitchen products. Built to convert conscious shoppers through storytelling, product education, and a checkout experience that is as clean as the products it sells.
+    </p>
+    <div class="hero-links">
+        <a href="https://vigne-xi.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            Visit Live Site
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11 8.414V18h2V8.414l4.293 4.293 1.414-1.414L12 4.586l-6.707 6.707 1.414 1.414z"/></svg>
+        </a>
+    </div>
+</section>
+
+<div class="hero-img">
+    <img src="../images/web/Vigne.png" alt="Vigne Marketplace Screenshot">
+</div>
+
+<div class="content">
+
+    <!-- Problem -->
+    <section>
+        <span class="section-label">The Challenge</span>
+        <h2 class="section-title">Selling Sustainability Without Preaching It</h2>
+        <div class="section-body">
+            <p>The brief was nuanced: build an e-commerce site for eco-friendly kitchenware that didn't feel preachy or clinical. Most "green" brands make sustainability the entire personality — which alienates the majority of shoppers who just want a good product. Vigne had to be a great kitchen marketplace first, with sustainability as a natural quality badge rather than the entire pitch.</p>
+            <p>The technical challenge was building a performant, SEO-optimised storefront on a tight timeline with product filtering, a cart system, and an image-heavy catalogue that still loaded fast on mobile.</p>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section>
+        <span class="section-label">Technology</span>
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="tech-grid" style="margin-top:8px;">
+            <span class="tech-chip">Next.js 14</span>
+            <span class="tech-chip">TypeScript</span>
+            <span class="tech-chip">Tailwind CSS</span>
+            <span class="tech-chip">Framer Motion</span>
+            <span class="tech-chip">Vercel</span>
+            <span class="tech-chip">next/image (optimisation)</span>
+            <span class="tech-chip">Zustand (cart state)</span>
+            <span class="tech-chip">Sanity CMS</span>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- How It Was Built -->
+    <section>
+        <span class="section-label">How It Was Built</span>
+        <h2 class="section-title">Technical Decisions</h2>
+
+        <div class="card-grid" style="margin-top:16px;">
+
+            <div class="card">
+                <div class="card-title">Image Optimisation Strategy</div>
+                <p class="card-desc">Product photography is the lifeblood of e-commerce. Every image goes through Next.js <code>next/image</code> — automatic WebP conversion, lazy loading, and responsive srcset generation. The result: image-heavy pages that still score 90+ on Lighthouse mobile.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Cart with Zustand</div>
+                <p class="card-desc">Cart state lives in Zustand — persisted to localStorage so it survives page refreshes. The store is cleanly separated from UI, making it trivial to wire up to any checkout provider later. No prop drilling, no Redux overhead.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Product Filtering</div>
+                <p class="card-desc">Filters are URL-param driven — category, material, price range, eco-certification. This makes filtered pages shareable and indexable by search engines. The filter logic runs on the server (Next.js server components) so the initial render arrives fully filtered, with no loading flash.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Sanity CMS Integration</div>
+                <p class="card-desc">Non-technical staff manage product listings, blog posts, and homepage content through Sanity Studio. Type-safe queries via the Sanity client ensure the frontend never receives malformed data from a content edit.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Eco-Badge System</div>
+                <p class="card-desc">Products carry structured metadata tags (FSC-certified, BPA-free, carbon-neutral shipping). The badge rendering component is driven purely by this metadata — adding a new certification type requires zero code changes, just a new Sanity schema entry.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">SEO Architecture</div>
+                <p class="card-desc">Category pages, product pages, and blog posts all have dynamically generated meta tags, structured data (JSON-LD Product schema), and sitemap entries — generated at build time from the CMS. Organic search gets the full picture of every product.</p>
+            </div>
+
+        </div>
+
+        <div class="highlight">
+            <strong>Key insight:</strong> E-commerce performance is conversion rate. Every 100ms of load time is a percentage point of lost sales. The entire architecture — SSG for product pages, streaming for cart, lazy load for images — is designed around that single truth.
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- AI -->
+    <section>
+        <span class="section-label">AI-Assisted Development</span>
+        <h2 class="section-title">How AI Helped</h2>
+        <div class="section-body">
+            <p>Building an e-commerce storefront involves a lot of predictable patterns — product cards, filter logic, cart management. AI handled the pattern work so I could focus on the differentiating details.</p>
+        </div>
+        <div class="ai-steps" style="margin-top:24px;">
+            <div class="ai-step">
+                <div class="ai-step-num">1</div>
+                <div class="ai-step-body">
+                    <h4>Zustand Store Design</h4>
+                    <p>I described the cart requirements — add, remove, update quantity, persist to localStorage, derive total — and Claude generated a clean, typed Zustand store. I reviewed and added the optimistic update for quantity changes. 15 minutes vs. an hour writing from scratch.</p>
+                </div>
+            </div>
+            <div class="ai-step">
+                <div class="ai-step-num">2</div>
+                <div class="ai-step-body">
+                    <h4>Sanity Schema Generation</h4>
+                    <p>Sanity schema definitions are verbose. I described each content type in plain English and had Claude generate the initial schema files. I reviewed for correctness, added validation rules, and had the CMS running in a fraction of the usual setup time.</p>
+                </div>
+            </div>
+            <div class="ai-step">
+                <div class="ai-step-num">3</div>
+                <div class="ai-step-body">
+                    <h4>Product Copy Refinement</h4>
+                    <p>Sample product descriptions were provided as bullet points. Claude transformed them into narrative copy that balanced warmth, sustainability messaging, and practical detail. I reviewed and adjusted the tone — the AI got to 70%, I handled the final 30%.</p>
+                </div>
+            </div>
+            <div class="ai-step">
+                <div class="ai-step-num">4</div>
+                <div class="ai-step-body">
+                    <h4>Accessibility Audit Assist</h4>
+                    <p>Before launch, I pasted component markup into Claude and asked it to identify WCAG 2.1 AA issues. It caught two missing aria-labels on icon buttons and a colour contrast failure on a secondary CTA. These would have been difficult to catch without a dedicated accessibility tool.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer class="proj-footer">
+    <p>Built by <a href="../index.html">Austine Chisutia</a> · <a href="https://vigne-xi.vercel.app/" target="_blank" rel="noopener noreferrer">Visit Live Site</a></p>
+</footer>
+
+</body>
+</html>

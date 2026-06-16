@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:landloard-chi.vercel.app)"
+      "WebFetch(domain:landloard-chi.vercel.app)",
+      "Bash(gh repo *)",
+      "PowerShell(gh repo list austinechisutia --limit 20 --json name,description,url,homepageUrl)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:forfyt-chi.vercel.app)",
+      "WebFetch(domain:forfyt-austinechisutia.vercel.app)",
+      "WebFetch(domain:4fyt.vercel.app)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\austi\\\\Downloads\" | Where-Object { $_.Extension -match \"\\\\.\\(jpg|jpeg|png|webp|gif|avif\\)\" } | Sort-Object LastWriteTime -Descending | Select-Object -First 5 Name, LastWriteTime, Length)"
     ]
   }
 }

@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="project.css">
+    <title>Landlord App — Case Study</title>
+</head>
+<body>
+
+<nav class="back-bar">
+    <a href="../index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"/>
+        </svg>
+        Back to Portfolio
+    </a>
+    <span class="site-name">Austine Chisutia</span>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <span class="hero-tag">Case Study · 2026 · SaaS Platform</span>
+    <h1>Landlord — Rent &amp; Tenant Management</h1>
+    <p class="hero-sub">
+        A full-stack SaaS platform that gives landlords a single dashboard to manage properties, track rent, onboard tenants, and automate payment reminders — built with scalability and real-world data integrity in mind.
+    </p>
+    <div class="hero-links">
+        <a href="https://landloard-chi.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            Visit Live Site
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11 8.414V18h2V8.414l4.293 4.293 1.414-1.414L12 4.586l-6.707 6.707 1.414 1.414z"/></svg>
+        </a>
+        <a href="#system-design" class="btn-secondary">
+            System Design
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 15-5-5 1.414-1.414L11 13.172V7h2v6.172l2.586-2.586L17 12l-5 5z"/></svg>
+        </a>
+    </div>
+</section>
+
+<div class="hero-img">
+    <img src="../images/web/landlord.png" alt="Landlord App Screenshot">
+</div>
+
+<div class="content">
+
+    <!-- Problem -->
+    <section>
+        <span class="section-label">The Problem</span>
+        <h2 class="section-title">Why This Was Built</h2>
+        <div class="section-body">
+            <p>Most landlords in Kenya — and across East Africa — still manage rent through WhatsApp messages, handwritten receipts, and scattered M-Pesa confirmations. When you have 10+ tenants across multiple units, this collapses fast: missed payments go unnoticed, disputes have no paper trail, and rent escalation notices are manual and error-prone.</p>
+            <p>The goal was to build a platform that feels like modern SaaS but solves hyper-local problems — M-Pesa integration, multi-currency support, and offline-friendly dashboards for landlords who may not always have fast internet.</p>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section>
+        <span class="section-label">Technology</span>
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="section-body">
+            <p>Every tool was chosen for a reason — not trend. The stack prioritises developer speed, production reliability, and the lowest possible cost to self-host.</p>
+        </div>
+        <div class="tech-grid" style="margin-top:20px;">
+            <span class="tech-chip">Next.js 14 (App Router)</span>
+            <span class="tech-chip">TypeScript</span>
+            <span class="tech-chip">PostgreSQL</span>
+            <span class="tech-chip">Prisma ORM</span>
+            <span class="tech-chip">Tailwind CSS</span>
+            <span class="tech-chip">NextAuth.js</span>
+            <span class="tech-chip">Vercel</span>
+            <span class="tech-chip">Supabase Storage</span>
+            <span class="tech-chip">Web3Forms</span>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- System Design -->
+    <section id="system-design">
+        <span class="section-label">System Design</span>
+        <h2 class="section-title">Architecture &amp; Design Principles</h2>
+        <div class="section-body">
+            <p>The architecture follows a layered, domain-driven approach. Each concern is separated cleanly — UI, business logic, data access — so any layer can be swapped or scaled independently.</p>
+        </div>
+
+        <div class="diagram" style="margin-top:24px;">
+            <p class="diagram-title">Request Flow</p>
+            <div class="flow">
+                <div class="flow-node">Browser / PWA</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">Next.js Edge Middleware (Auth)</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">Server Actions / API Routes</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">Service Layer</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">Prisma ORM</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">PostgreSQL (Supabase)</div>
+            </div>
+        </div>
+
+        <div class="card-grid" style="margin-top:28px;">
+
+            <div class="card">
+                <div class="card-title">Multi-Tenancy (SaaS)</div>
+                <p class="card-desc">Each landlord account is a isolated tenant in the database. All queries are scoped by <code>landlordId</code> at the service layer — no data leaks between accounts, even if a query bug slips through.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Role-Based Access Control</div>
+                <p class="card-desc">Three roles: <strong>Landlord</strong> (full CRUD on properties and tenants), <strong>Tenant</strong> (read-only on own lease and payments), and <strong>Admin</strong> (platform-level ops). Middleware enforces this before any route renders.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Database Schema Design</div>
+                <p class="card-desc">Normalised schema: <code>User → Property → Unit → Lease → Payment</code>. Foreign key constraints at the DB level, not just application code, so stale references are impossible. Soft-delete pattern for tenants so payment history is never lost.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">RESTful API Design</div>
+                <p class="card-desc">Resource-based URL structure: <code>/api/properties/:id/units</code>. Each endpoint returns consistent envelope responses — <code>{ data, meta, error }</code> — making frontend error handling uniform across the whole app.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Idempotent Payments</div>
+                <p class="card-desc">Every payment record carries a unique <code>transactionRef</code>. If an M-Pesa callback fires twice (common on slow networks), the duplicate is rejected at the DB constraint level — no double-credit bug possible.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Optimistic UI + Server Sync</div>
+                <p class="card-desc">Rent status updates optimistically in the UI while the server mutation runs. If the server rejects, the UI rolls back automatically. This gives a snappy feel even on 3G connections common in Kenya.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Input Validation at Every Layer</div>
+                <p class="card-desc">Zod schemas validate all incoming data at the API route before it reaches the service layer. The database then enforces column constraints as a second line of defence. Nothing untrusted ever reaches a SQL query.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Audit Trail</div>
+                <p class="card-desc">A <code>PaymentLog</code> table records every state change with a timestamp and acting user ID. Disputes between landlord and tenant can be resolved with a complete timeline of who did what, when.</p>
+            </div>
+
+        </div>
+
+        <div class="highlight">
+            <strong>Key principle:</strong> Never trust the client. Every mutation re-validates the session, checks the user's role, confirms resource ownership, and validates the payload — in that order — before touching the database.
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- AI Principles -->
+    <section>
+        <span class="section-label">AI-Assisted Development</span>
+        <h2 class="section-title">How AI Accelerated This Project</h2>
+        <div class="section-body">
+            <p>AI wasn't used to write the whole app. It was used as a senior pair-programmer that never gets tired — handling the scaffolding, edge-case hunting, and documentation, while I focused on product decisions and domain logic.</p>
+        </div>
+
+        <div class="ai-steps" style="margin-top:24px;">
+
+            <div class="ai-step">
+                <div class="ai-step-num">1</div>
+                <div class="ai-step-body">
+                    <h4>Schema Design with Claude</h4>
+                    <p>I described the domain in plain English — "landlords own multiple properties, each with units, tenants sign leases, and payments track rent". Claude generated a first-draft Prisma schema with proper relations, indexes, and cascade rules. I reviewed and refined it, catching a missing compound unique index on <code>(leaseId, month, year)</code> that would have allowed duplicate payment entries.</p>
+                </div>
+            </div>
+
+            <div class="ai-step">
+                <div class="ai-step-num">2</div>
+                <div class="ai-step-body">
+                    <h4>Boilerplate Elimination</h4>
+                    <p>CRUD server actions are repetitive but critical to get right. I wrote the first one manually, then gave Claude the pattern and asked it to generate the remaining five. The AI matched the existing style — error handling, Zod validation, response shape — saving roughly 4 hours of copy-paste-and-tweak work.</p>
+                </div>
+            </div>
+
+            <div class="ai-step">
+                <div class="ai-step-num">3</div>
+                <div class="ai-step-body">
+                    <h4>Edge Case Discovery</h4>
+                    <p>Before shipping the payment flow, I described the logic to Claude and asked "what could go wrong?" It surfaced three scenarios I had not considered: double-submission on slow networks (solved with the <code>transactionRef</code> idempotency key), race conditions when two admins update a lease simultaneously (solved with optimistic locking), and what happens when a tenant's lease expires mid-month (edge-case handled with pro-rata logic).</p>
+                </div>
+            </div>
+
+            <div class="ai-step">
+                <div class="ai-step-num">4</div>
+                <div class="ai-step-body">
+                    <h4>Test Case Generation</h4>
+                    <p>I described each service function to ChatGPT and asked it to write exhaustive Vitest unit tests — happy path, validation failures, permission errors, and database constraint violations. This gave me 80%+ coverage in a fraction of the time it would take to write tests manually.</p>
+                </div>
+            </div>
+
+            <div class="ai-step">
+                <div class="ai-step-num">5</div>
+                <div class="ai-step-body">
+                    <h4>Prompt-Engineered SQL Queries</h4>
+                    <p>Complex aggregations — "total rent collected per property per quarter, grouped by unit type" — are painful to write by hand. I described the desired output to Claude, got a raw SQL query, validated it against sample data in Supabase, and converted it to a Prisma raw query. The AI handled syntax; I handled correctness verification.</p>
+                </div>
+            </div>
+
+            <div class="ai-step">
+                <div class="ai-step-num">6</div>
+                <div class="ai-step-body">
+                    <h4>Code Review on Demand</h4>
+                    <p>Before every major PR, I pasted the diff into Claude and asked "does this introduce any security vulnerabilities or logic bugs?" It caught an unguarded <code>req.params.id</code> in an early iteration that wasn't being checked against the session user's properties — a classic IDOR vulnerability.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="highlight">
+            <strong>The rule I follow:</strong> AI writes the skeleton, I write the soul. Business logic, product decisions, and security boundaries are always human-authored. AI handles repetition so I can focus on the 20% that actually matters.
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Outcomes -->
+    <section>
+        <span class="section-label">Outcomes</span>
+        <h2 class="section-title">What Was Achieved</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-title">Rent Tracking Automated</div>
+                <p class="card-desc">Landlords get an instant dashboard view of who has paid, who is overdue, and what the total collection rate is for each property this month.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">Tenant Onboarding Simplified</div>
+                <p class="card-desc">New tenants are added with a single form — lease terms, rent amount, and due date auto-generate all future payment reminders.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">Revenue Visibility</div>
+                <p class="card-desc">Month-on-month charts show income trends, vacancy rates, and defaulter patterns — information that used to be invisible in spreadsheets.</p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer class="proj-footer">
+    <p>Built by <a href="../index.html">Austine Chisutia</a> · <a href="https://landloard-chi.vercel.app/" target="_blank" rel="noopener noreferrer">Visit Live Site</a></p>
+</footer>
+
+</body>
+</html>

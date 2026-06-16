@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="project.css">
+    <title>4Fyt — AI Fitness Platform · Case Study</title>
+</head>
+<body>
+
+<nav class="back-bar">
+    <a href="../index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414 1.414L6.414 13H21z"/>
+        </svg>
+        Back to Portfolio
+    </a>
+    <span class="site-name">Austine Chisutia</span>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <span class="hero-tag">Case Study · 2026 · AI Product</span>
+    <h1>4Fyt — AI Personal Trainer</h1>
+    <p class="hero-sub">
+        An AI-powered fitness platform that generates fully personalised workout plans, nutrition guidance, recovery schedules, and corrective exercise programmes in under three minutes — no gym membership, no personal trainer fees, permanently free.
+    </p>
+    <div class="hero-links">
+        <a href="https://4fyt.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            Visit Live Site
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11 8.414V18h2V8.414l4.293 4.293 1.414-1.414L12 4.586l-6.707 6.707 1.414 1.414z"/></svg>
+        </a>
+        <a href="#ai-section" class="btn-secondary">
+            AI Architecture
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.827 3.52h-3.645L6.3 20.48h3.517l.837-2.685h5.21l.834 2.685h3.52l-3.882-16.96h-2.51zm-2.635 11.656 1.785-5.726 1.783 5.726H11.19z"/></svg>
+        </a>
+    </div>
+</section>
+
+<div class="hero-img">
+    <img src="../images/web/4fyt.png" alt="4Fyt AI Fitness Platform" style="width:100%;border-radius:12px;border:1px solid rgba(108,117,125,.3);">
+</div>
+
+<div class="content">
+
+    <!-- Problem -->
+    <section>
+        <span class="section-label">The Problem</span>
+        <h2 class="section-title">Why Most Fitness Apps Fail People</h2>
+        <div class="section-body">
+            <p>Generic fitness apps give everyone the same 12-week programme. A 55-year-old woman recovering from a knee injury and a 22-year-old man training for a marathon have nothing in common — but most apps treat them identically. The result is a programme that does not fit, gets abandoned within two weeks, and leaves the user convinced they are the problem.</p>
+            <p>4Fyt takes a different approach: collect a brief but precise profile through an onboarding questionnaire, then use AI to generate a plan that is genuinely specific to that person's goals, limitations, equipment access, and schedule — not a template with their name on it.</p>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section>
+        <span class="section-label">Platform At a Glance</span>
+        <h2 class="section-title">What 4Fyt Delivers</h2>
+        <div class="card-grid" style="margin-top:16px;">
+            <div class="card">
+                <div class="card-title">500+ Exercises</div>
+                <p class="card-desc">A curated library covering strength, cardio, flexibility, and corrective movement — tagged by equipment, muscle group, difficulty, and injury contraindications so the AI can make safe selections for each user.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">12 Plan Types</div>
+                <p class="card-desc">From fat loss and muscle building to sports performance, post-rehabilitation, and senior fitness. Each plan type has its own progression model, rest period logic, and intensity scaling rules.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">3-Minute Onboarding</div>
+                <p class="card-desc">A streamlined questionnaire captures the variables that actually matter: goal, current fitness level, available equipment, time per session, days per week, injury history, and dietary preferences. Nothing irrelevant is asked.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">Always Free</div>
+                <p class="card-desc">No credit card, no free trial that expires, no premium tier gate. The decision was intentional: accessibility is the product. Monetisation is deferred to coaching add-ons, not paywalling core functionality.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- How It Was Built -->
+    <section>
+        <span class="section-label">How It Was Built</span>
+        <h2 class="section-title">Technical Architecture</h2>
+        <div class="section-body">
+            <p>4Fyt is a Next.js application that pairs a structured onboarding flow with an LLM-backed plan generation engine. The architecture separates the user data collection layer cleanly from the AI generation layer — so either can be improved independently.</p>
+        </div>
+
+        <div class="diagram" style="margin-top:24px;">
+            <p class="diagram-title">Plan Generation Flow</p>
+            <div class="flow">
+                <div class="flow-node">Onboarding form</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">Profile schema validation</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">Prompt builder</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">LLM API (Claude)</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">Structured plan parser</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">Plan rendered to user</div>
+            </div>
+        </div>
+
+        <div class="card-grid" style="margin-top:28px;">
+
+            <div class="card">
+                <div class="card-title">Next.js App Router</div>
+                <p class="card-desc">The onboarding questionnaire uses server actions to validate and persist each step. The plan generation page streams the AI response incrementally — users see their plan building in real time rather than waiting for the full response before anything renders.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Prompt Engineering</div>
+                <p class="card-desc">The prompt is not a simple "generate a workout plan for X". It is a structured template that injects the user's profile into a precisely ordered set of constraints — goal first, then limitations, then equipment, then time budget. The ordering matters: it determines what the model prioritises when it cannot satisfy every constraint simultaneously.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Structured Output Parsing</div>
+                <p class="card-desc">The AI is instructed to respond in a consistent JSON schema. A Zod parser validates the response before it reaches the UI. If the model deviates from the schema — which happens occasionally — the parser catches it and triggers a retry rather than rendering malformed data.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Exercise Library Constraints</div>
+                <p class="card-desc">The prompt includes only exercises that match the user's equipment and are safe given their injury history. Rather than letting the model freely invent exercises, the constraint set is injected into the prompt — keeping the model's selections within a verified, safe library.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Progressive Overload Logic</div>
+                <p class="card-desc">Each generated plan includes week-by-week progression instructions — not just a static week one workout repeated. The model is prompted to apply progressive overload principles (volume, intensity, frequency increases) according to the plan type's periodisation model.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Response Streaming</div>
+                <p class="card-desc">The Vercel AI SDK handles streaming from the LLM to the client. The plan appears section by section as the model generates it, which reduces perceived wait time significantly and gives users immediate confidence that something is happening.</p>
+            </div>
+
+        </div>
+
+        <div class="highlight">
+            <strong>Key architectural decision:</strong> The AI is not trusted to make safety decisions. The constraint layer — filtering exercises by equipment and injury flags before the prompt is built — is deterministic code, not model judgement. The model handles creativity and coherence; the code handles safety boundaries.
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- AI Section -->
+    <section id="ai-section">
+        <span class="section-label">AI Development Process</span>
+        <h2 class="section-title">How AI Was Used to Build 4Fyt</h2>
+        <div class="section-body">
+            <p>Building an AI product is a different challenge from building a CRUD application. The hardest problems are not technical — they are about knowing what to ask the model, how to constrain it, and how to handle the cases where it does not do what you expected.</p>
+        </div>
+
+        <div class="ai-steps" style="margin-top:24px;">
+
+            <div class="ai-step">
+                <div class="ai-step-num">1</div>
+                <div class="ai-step-body">
+                    <h4>Prompt Architecture Design</h4>
+                    <p>The core challenge was prompt reliability. A prompt that works 80% of the time is not acceptable when 20% of users receive a broken plan. I worked iteratively with Claude to design a prompt structure that is internally consistent — the model always knows the priority order of constraints, what to do when equipment is limited, and how to handle edge cases like "home gym with only resistance bands and a pull-up bar".</p>
+                </div>
+            </div>
+
+            <div class="ai-step">
+                <div class="ai-step-num">2</div>
+                <div class="ai-step-body">
+                    <h4>Output Schema Definition</h4>
+                    <p>I used Claude to co-design the JSON output schema for the generated plan — discussing the trade-offs between a flat structure (easy to parse, harder to extend) and a nested structure (harder to parse, models the domain correctly). We settled on a nested schema: Plan → Weeks → Days → Sessions → Exercises, with each level carrying its own metadata.</p>
+                </div>
+            </div>
+
+            <div class="ai-step">
+                <div class="ai-step-num">3</div>
+                <div class="ai-step-body">
+                    <h4>Edge Case Enumeration</h4>
+                    <p>Before building the constraint layer, I described the onboarding questionnaire to Claude and asked it to enumerate every combination of inputs that could produce an unsatisfiable or dangerous plan. It generated 23 edge cases I had not thought of — including users who select "muscle building" as a goal but "no equipment" as their setup, and users with lower back injuries wanting to do heavy deadlifts. Each became a specific constraint rule.</p>
+                </div>
+            </div>
+
+            <div class="ai-step">
+                <div class="ai-step-num">4</div>
+                <div class="ai-step-body">
+                    <h4>Zod Schema Generation</h4>
+                    <p>Once the output schema was finalised, I described it to Claude and had it generate the full Zod validation schema, including discriminated unions for different plan types and refinements for cross-field validation (e.g., "if plan type is rehabilitation, intensity must be low or moderate"). I reviewed every rule for correctness before shipping.</p>
+                </div>
+            </div>
+
+            <div class="ai-step">
+                <div class="ai-step-num">5</div>
+                <div class="ai-step-body">
+                    <h4>Streaming UI Implementation</h4>
+                    <p>Implementing streaming with the Vercel AI SDK required understanding the RSC (React Server Components) data model at a deeper level than typical Next.js work. I used Claude to walk through the streaming architecture, identify where state needed to live, and understand the difference between streaming a text response versus streaming structured JSON. This turned a two-day investigation into a two-hour implementation.</p>
+                </div>
+            </div>
+
+            <div class="ai-step">
+                <div class="ai-step-num">6</div>
+                <div class="ai-step-body">
+                    <h4>Nutrition Calculation Logic</h4>
+                    <p>The calorie and macro recommendations are calculated deterministically using the Mifflin-St Jeor equation (for BMR) and activity multipliers — not left to the model. I described the calculation requirements to Claude and got a clean, tested TypeScript implementation. The model then contextualises these numbers into food-specific guidance, rather than being trusted to produce the numbers themselves.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="highlight">
+            <strong>The lesson from building an AI product:</strong> The model is the least reliable part of the system. Every boundary that matters — safety, data validity, business rules — should be enforced in code. Let the model do what it is genuinely good at: generating varied, contextually appropriate natural language within the space that code has already bounded.
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Outcomes -->
+    <section>
+        <span class="section-label">Outcomes</span>
+        <h2 class="section-title">What the Platform Achieves</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-title">Genuine Personalisation</div>
+                <p class="card-desc">Every plan is generated from scratch for that user's specific profile. Two users with different injury histories and equipment access receive structurally different plans — not the same template with minor variations.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">Accessibility at Scale</div>
+                <p class="card-desc">Removing the paywall removes the friction that stops people from starting. The platform serves users who cannot afford a personal trainer and users who simply want a plan without a subscription commitment.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">Safe by Design</div>
+                <p class="card-desc">Injury flags and equipment constraints are enforced before the AI sees the request. Users with rehabilitation needs receive plans that are appropriate for their condition — not plans that ignore it.</p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer class="proj-footer">
+    <p>Built by <a href="../index.html">Austine Chisutia</a> · <a href="https://4fyt.vercel.app/" target="_blank" rel="noopener noreferrer">Visit Live Site</a></p>
+</footer>
+
+</body>
+</html>

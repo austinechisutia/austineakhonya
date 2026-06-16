@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -58,11 +58,11 @@
             <a href="#about">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #9c9d9e;transform: ;msFilter:;"><path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z"></path></svg>
             </a><span class="icon-label">About</span></div>
-        <div class="home">
+        <!-- <div class="home">
             <a href="#services">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #9c9d9e;transform: ;msFilter:;"><path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z"></path></svg>
             </a><span class="icon-label">Services</span>
-        </div>
+        </div> -->
         <div class="home">
             <a href="#contact">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #9c9d9e;transform: ;msFilter:;"><path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"></path></svg>
@@ -79,10 +79,13 @@
             <div class="circle circle1"><div class="star1"></div></div>
         </div> -->
         <div class="profile">
-            <img class="rotating" src="images/profile.png" alt="">
-            <div class="availability">
-                <div class="online-blink"></div>
-                Available For New Projects
+            <div class="profile-img-wrap">
+                <div class="profile-ring rotating"></div>
+                <img src="images/profile.jpg" alt="Austine Chisutia">
+                <div class="availability">
+                    <div class="online-blink"></div>
+                    Available For New Projects
+                </div>
             </div>
         </div>
         <div class="profile-details">
@@ -90,7 +93,7 @@
                 Building Exceptional <br> User Experiences
             </h1>
             <p class="profile-description">
-                Hi! I'm Austine, a Software Developer based in Kenya. I specialize in building functional, high-performing web applications and end-to-end software solutions. Let's discuss your next project.
+                Hi! I'm Austine, an AI Developer based in Kenya. I build full-stack products fast — using AI as a force multiplier at every stage of the process. From architecture to deployment, I ship production-grade software in a fraction of the time it takes the traditional way.
             </p>
 
             <div class="connect-contact">
@@ -108,7 +111,53 @@
         </div>
     </div>
 
-    <div class="services-section second-section profile-details" id="services">
+    <div class="second-section profile-details" style="width:80vw;max-width:80vw;">
+        <h5 class="results" style="margin-bottom:8px;">HOW I USE AI</h5>
+        <h2 style="font-size:28px;color:#f2f2f2;margin-bottom:12px;">Proficient AI Development</h2>
+        <p style="font-family:'Roboto',sans-serif;font-size:16px;color:#6c757d;line-height:1.8;max-width:700px;text-align:center;">
+            I treat AI tools the way a surgeon treats instruments — precisely, intentionally, and with deep understanding of what each one is for. The result is production-quality code shipped in a fraction of the time, with zero compromise on correctness or security.
+        </p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;width:100%;margin-top:8px;">
+
+            <div style="background:rgba(14,21,34,0.6);border:1px solid rgba(108,117,125,0.3);border-radius:12px;padding:22px 18px;">
+                <h4 style="font-size:16px;color:#f2f2f2;margin-bottom:8px;">Architecture Planning</h4>
+                <p style="font-family:'Roboto',sans-serif;font-size:14px;color:#6c757d;line-height:1.7;">I describe the problem domain to Claude in plain English. It surfaces entity relationships, edge cases, and trade-offs I might not have considered. I make the call; AI does the analysis.</p>
+            </div>
+
+            <div style="background:rgba(14,21,34,0.6);border:1px solid rgba(108,117,125,0.3);border-radius:12px;padding:22px 18px;">
+                <h4 style="font-size:16px;color:#f2f2f2;margin-bottom:8px;">Boilerplate at 10x Speed</h4>
+                <p style="font-family:'Roboto',sans-serif;font-size:14px;color:#6c757d;line-height:1.7;">I write the first pattern manually, then give it to AI to replicate across the codebase — matching style, error handling, and validation. What takes 4 hours manually takes 20 minutes.</p>
+            </div>
+
+            <div style="background:rgba(14,21,34,0.6);border:1px solid rgba(108,117,125,0.3);border-radius:12px;padding:22px 18px;">
+                <h4 style="font-size:16px;color:#f2f2f2;margin-bottom:8px;">Edge Case Discovery</h4>
+                <p style="font-family:'Roboto',sans-serif;font-size:14px;color:#6c757d;line-height:1.7;">Before shipping any critical flow, I describe the logic to Claude and ask "what could go wrong?". It has caught race conditions, IDOR vulnerabilities, and duplicate-submission bugs that would have reached production.</p>
+            </div>
+
+            <div style="background:rgba(14,21,34,0.6);border:1px solid rgba(108,117,125,0.3);border-radius:12px;padding:22px 18px;">
+                <h4 style="font-size:16px;color:#f2f2f2;margin-bottom:8px;">Test Generation</h4>
+                <p style="font-family:'Roboto',sans-serif;font-size:14px;color:#6c757d;line-height:1.7;">I describe each service function's behaviour and have AI write exhaustive unit tests — happy path, validation failures, permission errors, and constraint violations. 80%+ coverage without the grind.</p>
+            </div>
+
+            <div style="background:rgba(14,21,34,0.6);border:1px solid rgba(108,117,125,0.3);border-radius:12px;padding:22px 18px;">
+                <h4 style="font-size:16px;color:#f2f2f2;margin-bottom:8px;">Security Code Review</h4>
+                <p style="font-family:'Roboto',sans-serif;font-size:14px;color:#6c757d;line-height:1.7;">Before every major PR, I paste the diff into Claude and ask for a security audit. It has caught unguarded parameters, missing auth checks, and XSS vectors that manual review missed.</p>
+            </div>
+
+            <div style="background:rgba(14,21,34,0.6);border:1px solid rgba(108,117,125,0.3);border-radius:12px;padding:22px 18px;">
+                <h4 style="font-size:16px;color:#f2f2f2;margin-bottom:8px;">The Rule I Follow</h4>
+                <p style="font-family:'Roboto',sans-serif;font-size:14px;color:#6c757d;line-height:1.7;">AI writes the skeleton — I write the soul. Business logic, product decisions, and security boundaries are always human-authored. I understand every line before it ships. AI handles the 80% that's mechanical so I can focus on the 20% that matters.</p>
+            </div>
+
+        </div>
+
+        <div style="width:100%;margin-top:24px;border-left:3px solid;border-image:linear-gradient(45deg,#4ffaa4,#76eff8,#0496cf) 1;padding:16px 22px;background:rgba(79,250,164,0.04);border-radius:0 8px 8px 0;font-family:'Roboto',sans-serif;font-size:15px;color:#f2f2f2;line-height:1.7;">
+            <strong>Tools I use daily:</strong> Claude (architecture, code review, debugging), ChatGPT (rapid ideation, SQL queries), GitHub Copilot (in-editor completion), Claude Code (agentic task execution). Each tool has a role — I don't use all of them for everything.
+        </div>
+    </div>
+
+    <!-- <div class="services-section second-section profile-details" id="services">
         <h5 class="results">WHAT I OFFER</h5>
         <h1 class="results-title profile-title">My Services</h1>
         <p class="results-description profile-description">From concept to deployment — here's how I can help bring your vision to life.</p>
@@ -182,7 +231,7 @@
             </div>
 
         </div>
-    </div>
+    </div> -->
 
     <div class="second-section profile-details" id="projects">
         <h5 class="results">REAL-WORLD RESULTS</h5>

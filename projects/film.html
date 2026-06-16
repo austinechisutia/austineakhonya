@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="project.css">
+    <title>Film Production House — Case Study</title>
+</head>
+<body>
+
+<nav class="back-bar">
+    <a href="../index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414 1.414L6.414 13H21z"/>
+        </svg>
+        Back to Portfolio
+    </a>
+    <span class="site-name">Austine Chisutia</span>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <span class="hero-tag">Case Study · 2025 · Creative Website</span>
+    <h1>Film — Production at Its Core</h1>
+    <p class="hero-sub">
+        A cinematic showcase website for a film production company. Built to feel like the work it represents — immersive, bold, and fast. Every design decision serves one goal: make visitors feel the quality before they've seen a single frame.
+    </p>
+    <div class="hero-links">
+        <a href="https://austinechisutia.github.io/production-power-house/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            Visit Live Site
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11 8.414V18h2V8.414l4.293 4.293 1.414-1.414L12 4.586l-6.707 6.707 1.414 1.414z"/></svg>
+        </a>
+    </div>
+</section>
+
+<div class="hero-img">
+    <img src="../images/web/screenshot4.png" alt="Film Production House Screenshot">
+</div>
+
+<div class="content">
+
+    <!-- Problem -->
+    <section>
+        <span class="section-label">The Challenge</span>
+        <h2 class="section-title">Making a Static Site Feel Like Cinema</h2>
+        <div class="section-body">
+            <p>Film production companies live and die by first impressions. The brief was simple but demanding: the site had to communicate craft, motion, and prestige — without a video background that would tank load time on mobile, and without heavy JavaScript that would hurt SEO.</p>
+            <p>The solution was to achieve cinematic feel purely through typography, motion timing, layout hierarchy, and deliberate use of negative space. No video, no canvas, no WebGL. Pure CSS and GSAP.</p>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section>
+        <span class="section-label">Technology</span>
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="tech-grid" style="margin-top:8px;">
+            <span class="tech-chip">HTML5</span>
+            <span class="tech-chip">CSS3 (custom animations)</span>
+            <span class="tech-chip">Vanilla JavaScript</span>
+            <span class="tech-chip">GSAP (GreenSock)</span>
+            <span class="tech-chip">ScrollTrigger</span>
+            <span class="tech-chip">GitHub Pages</span>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- How It Was Built -->
+    <section>
+        <span class="section-label">How It Was Built</span>
+        <h2 class="section-title">Craft &amp; Technical Decisions</h2>
+
+        <div class="card-grid" style="margin-top:16px;">
+
+            <div class="card">
+                <div class="card-title">GSAP ScrollTrigger</div>
+                <p class="card-desc">Each section has an entrance animation tied to scroll position using GSAP's ScrollTrigger plugin. Elements don't just fade in — they move with weight, respecting the physics of cinematic camera movement (slow start, quick settle).</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Typography as Design</div>
+                <p class="card-desc">The headline typeface is treated as a visual element, not just text. Variable font sizes, extreme tracking, and mix-blend-mode effects on text against imagery create the editorial feel of a film title card.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Performance First</div>
+                <p class="card-desc">Images are lazy-loaded and served at the correct resolution via srcset. GSAP is loaded from CDN with deferred parsing. First Contentful Paint is under 1.2s — unusual for a visually heavy site.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Hover Micro-Interactions</div>
+                <p class="card-desc">Every interactive element has a custom hover state designed to match the cinematic mood — film reels that spin, project cards that reveal with a curtain wipe, buttons that glow like projection light. All pure CSS, no JavaScript needed.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Responsive Layout</div>
+                <p class="card-desc">The site reflows from a dramatic widescreen layout (1440px+) down to a clean mobile experience without losing the cinematic identity. Media queries restructure the grid from horizontal panning to vertical stacking.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Dark Mode by Design</div>
+                <p class="card-desc">The dark palette is not a preference setting — it is the design. Deep blacks and near-black backgrounds make the accent colours (gold, off-white) hit harder. The visual metaphor is the cinema screen in a dark room.</p>
+            </div>
+
+        </div>
+
+        <div class="highlight">
+            <strong>Design philosophy:</strong> Every millisecond of animation was timed to a beat — deliberate, controlled, and purposeful. When the animation feels effortless to watch, it's because it was laboured over during build.
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- AI in this project -->
+    <section>
+        <span class="section-label">AI-Assisted Development</span>
+        <h2 class="section-title">How AI Helped</h2>
+        <div class="section-body">
+            <p>For a creative, design-heavy project, AI's role shifts from architecture partner to creative sparring partner.</p>
+        </div>
+        <div class="ai-steps" style="margin-top:24px;">
+            <div class="ai-step">
+                <div class="ai-step-num">1</div>
+                <div class="ai-step-body">
+                    <h4>Animation Curve Exploration</h4>
+                    <p>I described the feeling I wanted — "like a cinema curtain opening slowly then snapping into place" — and asked Claude to suggest GSAP easing curves and duration values. It gave me three options with explanations. I tested all three and went with the second, tweaking the overshoot slightly. Saved hours of trial and error.</p>
+                </div>
+            </div>
+            <div class="ai-step">
+                <div class="ai-step-num">2</div>
+                <div class="ai-step-body">
+                    <h4>CSS Layout Debugging</h4>
+                    <p>A complex CSS Grid layout on the project reel section broke at a specific viewport width. I described the symptom to ChatGPT, got three candidate causes, identified the right one (implicit grid track creation), and fixed it in under 5 minutes rather than the 30 it would have taken to debug blind.</p>
+                </div>
+            </div>
+            <div class="ai-step">
+                <div class="ai-step-num">3</div>
+                <div class="ai-step-body">
+                    <h4>Copywriting Refinement</h4>
+                    <p>The hero section headline went through seven iterations. I gave Claude the brand brief — "cinematic, bold, confident, East African production company" — and it generated ten alternatives. None were used verbatim, but two sparked the phrase that became the final headline.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer class="proj-footer">
+    <p>Built by <a href="../index.html">Austine Chisutia</a> · <a href="https://austinechisutia.github.io/production-power-house/" target="_blank" rel="noopener noreferrer">Visit Live Site</a></p>
+</footer>
+
+</body>
+</html>
